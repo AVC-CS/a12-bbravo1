@@ -39,7 +39,7 @@ int main() {
     //       Note: new may not allocate sequentially; malloc with larger sizes
     //       is more reliable for demonstrating heap growth direction
     char* heapVar1 = (char*)malloc(1024); // from assignment
-    char* heapVar2 = (char*)new int;
+    char* heapVar2 = (char*)malloc(1024);
     cout << "Address of heapVar1: " << (void*)heapVar1 << endl;
     cout << "Address of heapVar2: " << (void*)heapVar2 << endl;
 
@@ -48,31 +48,27 @@ int main() {
 
     // TODO: Print TEXT segment - 2 function addresses
     //       e.g., (void*)&main and (void*)&checkStack
+    cout << "--- TEXT SEGMENT (Code) ---" << endl;
     cout << "Address of main(): " << (void*)&main << endl; // from assignment except rewrote the printAddress to checkstack
     cout << "Address of checkStack(): " << (void*)&checkStack << endl;
-
-    cout << "--- TEXT SEGMENT (Code) ---" << endl;
-    // ...
     cout << endl;
 
     // TODO: Print DATA segment - 2 initialized global addresses + values
+    cout << "--- DATA SEGMENT (Initialized Globals) ---" << endl;
+    // ...
     cout << "Address of intializedglobalVar: " << (void*)&intializedglobalVar << endl;
     cout << "Value of intializedglobalVar: " << intializedglobalVar << endl;
     cout << "Address of intializedglobalVar2: " << (void*)&intializedglobalVar2 << endl;
     cout << "Value of intializedglobalVar2: " << intializedglobalVar2 << endl;
-
-    cout << "--- DATA SEGMENT (Initialized Globals) ---" << endl;
-    // ...
     cout << endl;
 
     // TODO: Print BSS segment - 2 uninitialized global addresses + values
+     cout << "--- BSS SEGMENT (Uninitialized Globals) ---" << endl;
     cout << "Address of unintializedglobalVar: " << (void*)&unintializedglobalVar << endl;
     cout << "Value of unintializedglobalVar: " << unintializedglobalVar << endl;
     cout << "Address of unintializedglobalVar2: " << (void*)&unintializedglobalVar2 << endl;
     cout << "Value of unintializedglobalVar2: " << unintializedglobalVar2 << endl;
 
-
-    cout << "--- BSS SEGMENT (Uninitialized Globals) ---" << endl;
     // ...
     cout << endl;
 
@@ -82,12 +78,10 @@ int main() {
 
     // TODO: Print HEAP segment - 2 heap addresses + comparison
     //       Print "Heap grows: UP" or "DOWN"
+    cout << "--- HEAP SEGMENT (Dynamic Allocation) ---" << endl;
     cout << "Address of heapVar1: " << (void*)heapVar1 << endl;
     cout << "Address of heapVar2: " << (void*)heapVar2 << endl;
     cout << "Heap grows: " << (heapVar2 > heapVar1 ? "UP" : "DOWN") << endl;
-
-
-    cout << "--- HEAP SEGMENT (Dynamic Allocation) ---" << endl;
     cout << endl;
 
     // TODO: Print relative position summary
